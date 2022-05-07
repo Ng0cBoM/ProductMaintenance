@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1px" width="40%">
+		<tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Desciption</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+     	<div th:each = "product: ${products}">
+     		<tr>
+	            <td th:text="${product.productId}"></td>
+	            <td th:text="${product.name}"></td>
+	            <td th:text="${product.description}"></td>
+	            <td th:text="${product.price}"></td>
+	            <td><a th:href="@{/updateProduct/{id}(id = ${product.productId})}">Edit</a></td>
+	            <td><a th:href="@{/deleteProduct/{id}(id = ${product.productId})}">Delete</a></td>
+        	</tr>
+     	</div>
+	</table>
+	<br /><br />
+	<form th:action="@{/updateProduct}">
+		<input type="submit" value = "Add Product"/>
+	</form>
+</body>
+</html>

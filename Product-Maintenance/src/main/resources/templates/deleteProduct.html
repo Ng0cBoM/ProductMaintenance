@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Are you sure you want to delete this product</h1>
+	<form th:action="@{/deleteProduct/{id}(id = ${product.productId})}" method="post">
+		Product Code: <span th:text = "${product.productId}"></span> <br /> <br />
+		Product Name: <span th:text = "${product.name}"></span> <br /> <br />
+		Product Desctiption: <span th:text = "${product.description}"></span> <br /> <br />
+		Product Price: <span th:text = "${product.price}"></span> <br /> <br />
+		<input type="submit" value="Yes"/>
+		<button th:formaction="@{/deleteProduct}">No</button>
+	</form>
+</body>
+</html>
